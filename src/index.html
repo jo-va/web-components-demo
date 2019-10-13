@@ -7,7 +7,10 @@
   </head>
   <body>
     <my-app label="First Instance"></my-app>
-    <my-app label="Second Instance">
+    <my-app label="Second Instance"
+      ><p slot="slot2">Slotted content going into slot 2</p></my-app
+    >
+    <my-app label="Third Instance">
       <p>Slotted content going into default slot</p>
       <p slot="slot2">Slotted content going into slot 2</p>
     </my-app>

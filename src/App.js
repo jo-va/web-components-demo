@@ -11,12 +11,18 @@ template.innerHTML = /*html*/ `
       margin: 1em;
       font-family: Arial, sans-serif;
     }
+    .slot1 {
+      color: grey;
+    }
+    .slot2 {
+      font-style: italic;
+    }
   </style>
   <h1>Hello <span id="label"></span></h1>
-  <slot>
-    <p>Default content for default Slot (unnamed)</p>
+  <slot class="slot1">
+    <p>Default content for unnamed Slot</p>
   </slot>
-  <slot name="slot2">
+  <slot name="slot2" class="slot2">
     <p>Default content for Slot 2</p>
   </slot>
 `;
@@ -39,6 +45,10 @@ class App extends HTMLElement {
 
   disconnectedCallback() {
     console.log('Component disconnected');
+  }
+
+  adoptedCallback() {
+    console.log('Component adopted');
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
