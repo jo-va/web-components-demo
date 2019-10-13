@@ -12,7 +12,7 @@ template.innerHTML = /*html*/ `
     }
   </style>
 
-  <h1>Hello <span id="name"></span></h1>
+  <h1>Hello <span id="label"></span></h1>
 `;
 
 class App extends HTMLElement {
@@ -20,26 +20,35 @@ class App extends HTMLElement {
     super();
     this._shadowRoot = this.attachShadow({ mode: 'open' });
     this._shadowRoot.appendChild(template.content.cloneNode(true));
+    this._$label = this._shadowRoot.querySelector('#label');
   }
 
   static get observedAttributes() {
-    return ['name'];
+    return ['label'];
+  }
+
+  connectedCallback() {
+    console.log('Component connected');
+  }
+
+  disconnectedCallback() {
+    console.log('Component disconnected');
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
-    this.render();
+    this._render();
   }
 
-  get name() {
-    return this.getAttribute('name');
+  get label() {
+    return this.getAttribute('label');
   }
 
-  set name(val) {
-    this.setAttribute('name', val);
+  set label(val) {
+    this.setAttribute('label', val);
   }
 
-  render() {
-    this._shadowRoot.querySelector('#name').textContent = this.name;
+  _render() {
+    this._$label.textContent = this.label;
   }
 }
 
