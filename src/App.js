@@ -1,3 +1,5 @@
+import '@webcomponents/webcomponentsjs';
+
 const template = document.createElement('template');
 
 template.innerHTML = /*html*/ `
