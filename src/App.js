@@ -36,6 +36,12 @@ class App extends HTMLElement {
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
+    this.dispatchEvent(
+      new CustomEvent(`${name}Changed`, {
+        detail: { oldValue, newValue },
+        bubbles: true
+      })
+    );
     this._render();
   }
 
