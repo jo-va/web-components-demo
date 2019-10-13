@@ -5,14 +5,20 @@ const template = document.createElement('template');
 template.innerHTML = /*html*/ `
   <style>
     :host {
-      border: 1px solid rebeccapurple;
+      border: 2px solid pink;
       display: block;
       padding: 1em;
-      font-family: Arial, Helvetica, sans-serif;
+      margin: 1em;
+      font-family: Arial, sans-serif;
     }
   </style>
-
   <h1>Hello <span id="label"></span></h1>
+  <slot>
+    <p>Default content for default Slot (unnamed)</p>
+  </slot>
+  <slot name="slot2">
+    <p>Default content for Slot 2</p>
+  </slot>
 `;
 
 class App extends HTMLElement {
