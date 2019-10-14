@@ -3,16 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
     <title>Web Components Demo</title>
   </head>
   <body>
-    <my-app label="First Instance"></my-app>
-    <my-app label="Second Instance"
-      ><p slot="slot2">Slotted content going into slot 2</p></my-app
-    >
-    <my-app label="Third Instance">
-      <p>Slotted content going into default slot</p>
-      <p slot="slot2">Slotted content going into slot 2</p>
-    </my-app>
+    <todo-app></todo-app>
+    <script src="./node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
   </body>
 </html>
